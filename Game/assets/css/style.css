@@ -1,0 +1,74 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.playersList {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 30px;
+}
+
+.cards-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.time-container {
+  width: 100%;
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+.gameCard {
+  cursor: pointer;
+  perspective: 500px;
+  margin: 10px;
+  position: relative;
+  width: 120px;
+  height: 165px;
+}
+
+.front,
+.back {
+  box-sizing: border-box;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transition: 1s ease;
+  border-radius: 8px;
+}
+
+.front {
+  z-index: 1;
+  font-size: 4rem;
+  transform: rotateY(-180deg);
+  color: white;
+  background-color: red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.back {
+  border: 1px solid grey;
+  z-index: 2;
+  background-image: url("../images/backFace.jpg");
+  background-size: cover;
+}
+
+.active .front,
+.foundCard .front {
+  transform: rotateY(0);
+  z-index: 2;
+}
+
+.active .back,
+.foundCard .back {
+  transform: rotateY(180deg);
+  z-index: 1;
+}
